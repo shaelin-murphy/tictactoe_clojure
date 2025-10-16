@@ -58,6 +58,7 @@
         draw? (check-draw board)]
     (html5
      [:head [:title "Tic Tac Toe"]]
+     [:link {:rel "stylesheet" :href "/style.css"}]
      [:body
       [:h1 "Tic Tac Toe"]
       (cond
@@ -81,6 +82,7 @@
   (POST "/reset" []
     (reset-game!)
     {:status 302 :headers {"Location" "/"}})
+  (route/resources "/")  ;; serve style.css
   (route/not-found "Page not found"))
 
 (def app
